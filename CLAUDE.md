@@ -44,6 +44,7 @@ src/main/java/com/example/todo_api/
 - 존재하지 않는 Todo 조회 시 404 응답 반환
 - JpaRepository 기본 메서드명 정확히 사용: findById / findAll / save / delete (findBycId 같은 오타 금지)
 - 코드 수정/생성 후 ./gradlew compileJava로 컴파일 통과를 확인한 뒤 완료로 보고한다
+- 비밀번호, API 키 등 민감 정보는 절대 평문으로 코드/설정 파일에 넣지 않는다. 환경변수로 분리하고(예: ${DB_PASSWORD}), 로컬 비밀 파일은 .gitignore 처리한다
 
 ## 작업 방식 (토큰 절약)
 - 답변은 간결하게. 불필요한 설명/서론 생략
