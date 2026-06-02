@@ -42,6 +42,8 @@ src/main/java/com/example/todo_api/
 - ID는 Long 타입, @GeneratedValue(strategy = GenerationType.IDENTITY) 사용
 - completed 필드 기본값은 false
 - 존재하지 않는 Todo 조회 시 404 응답 반환
+- JpaRepository 기본 메서드명 정확히 사용: findById / findAll / save / delete (findBycId 같은 오타 금지)
+- 코드 수정/생성 후 ./gradlew compileJava로 컴파일 통과를 확인한 뒤 완료로 보고한다
 
 ## 작업 방식 (토큰 절약)
 - 답변은 간결하게. 불필요한 설명/서론 생략
