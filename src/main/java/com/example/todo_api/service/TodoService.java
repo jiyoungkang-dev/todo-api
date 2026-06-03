@@ -5,9 +5,9 @@ import com.example.todo_api.dto.TodoResponse;
 import com.example.todo_api.entity.Todo;
 import com.example.todo_api.exception.TodoNotFoundException;
 import com.example.todo_api.repository.TodoRepository;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 // 할 일 비즈니스 로직
 @Service
@@ -26,11 +26,13 @@ public class TodoService {
         return TodoResponse.from(todoRepository.save(todo));
     }
 
-    // 전체 조회
-    public List<TodoResponse> findAll() {
-        return todoRepository.findAll().stream()
-                .map(TodoResponse::from)
-                .toList();
+    // 목록 조회 (completed 필터 + 페이징)
+    // completed가 null이면 전체, 값이 있으면 해당 상태만 조회
+    public Page<TodoResponse> findAll(Boolean completed, Pageable pageable) {
+        Page<Todo> todos = (completed == null)
+                ? todoRepository.findAll(pageable)
+                : todoRepository.findByCompleted(completed, pageable);
+        return todos.map(TodoResponse::from);
     }
 
     // 단건 조회
