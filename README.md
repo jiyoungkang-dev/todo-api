@@ -3,6 +3,9 @@
 Spring Boot 기반 할 일 관리 REST API입니다.
 Todo CRUD와 함께 완료 여부 필터링 · 페이징 · 정렬을 지원하며, Swagger(OpenAPI)로 API 문서를 제공합니다.
 
+<img width="3812" height="1933" alt="image" src="https://github.com/user-attachments/assets/de123e9d-45d9-4e6e-b298-8f75376604c3" />
+
+
 > 백엔드 핵심 패턴(계층 분리, DTO 변환, 전역 예외 처리, 환경변수 분리, API 문서화)을 실습·정리한 포트폴리오용 프로젝트입니다.
 
 <br>
