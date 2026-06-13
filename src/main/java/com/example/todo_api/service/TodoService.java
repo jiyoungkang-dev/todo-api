@@ -26,13 +26,11 @@ public class TodoService {
         return TodoResponse.from(todoRepository.save(todo));
     }
 
-    // 목록 조회 (completed 필터 + 페이징)
-    // completed가 null이면 전체, 값이 있으면 해당 상태만 조회
-    public Page<TodoResponse> findAll(Boolean completed, Pageable pageable) {
-        Page<Todo> todos = (completed == null)
-                ? todoRepository.findAll(pageable)
-                : todoRepository.findByCompleted(completed, pageable);
-        return todos.map(TodoResponse::from);
+    // 목록 조회 (completed + keyword 선택적 필터 + 페이징)
+    // 각 조건은 null이면 무시, 둘 다 있으면 AND로 결합
+    public Page<TodoResponse> findAll(Boolean completed, String keyword, Pageable pageable) {
+        return todoRepository.search(completed, keyword, pageable)
+                .map(TodoResponse::from);
     }
 
     // 단건 조회

@@ -31,14 +31,15 @@ public class TodoController {
         return ResponseEntity.status(HttpStatus.CREATED).body(todoService.create(request));
     }
 
-    // 목록 조회 (completed 필터 + 페이징)
-    // 예: /api/todos?completed=true&page=0&size=10&sort=id,desc
-    @Operation(summary = "할 일 목록 조회", description = "completed 필터와 페이징을 지원한다")
+    // 목록 조회 (completed + keyword 필터 + 페이징)
+    // 예: /api/todos?completed=true&keyword=회의&page=0&size=10&sort=id,desc
+    @Operation(summary = "할 일 목록 조회", description = "completed/keyword 필터와 페이징을 지원한다")
     @GetMapping
     public Page<TodoResponse> findAll(
             @RequestParam(required = false) Boolean completed,
+            @RequestParam(required = false) String keyword,
             Pageable pageable) {
-        return todoService.findAll(completed, pageable);
+        return todoService.findAll(completed, keyword, pageable);
     }
 
     // 단건 조회
