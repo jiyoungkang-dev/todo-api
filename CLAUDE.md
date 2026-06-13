@@ -43,7 +43,7 @@ src/main/java/com/example/todo_api/
 
 ## 실수 방지 규칙
 (여기에 Claude가 같은 실수를 반복하면 규칙을 추가한다)
-- H2 콘솔 활성화: application.properties에 spring.h2.console.enabled=true
+- DB는 MySQL 8(운영/로컬), 테스트는 H2 인메모리(src/test/resources/application.properties) 사용
 - ID는 Long 타입, @GeneratedValue(strategy = GenerationType.IDENTITY) 사용
 - completed 필드 기본값은 false
 - 존재하지 않는 Todo 조회 시 404 응답 반환
