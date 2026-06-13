@@ -5,7 +5,8 @@ Spring Boot 기반 할 일 관리 REST API. Todo CRUD 기능을 제공한다.
 
 ## 기술 스택
 - Java 21 + Spring Boot 4.0.6
-- Spring Data JPA + H2 Database (개발용)
+- Spring Data JPA + MySQL 8 (운영/로컬, docker-compose로 실행)
+- H2 인메모리 DB (테스트 전용, src/test/resources/application.properties)
 - Gradle (Groovy)
 
 ## 빌드/실행 명령어
