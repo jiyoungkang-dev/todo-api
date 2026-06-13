@@ -4,11 +4,12 @@ services:
     image: mysql:8
     environment:
       MYSQL_DATABASE: ${MYSQL_DATABASE}
-      MYSQL_USER: ${DB_USERNAME}
-      MYSQL_PASSWORD: ${DB_PASSWORD}
+      # app 은 root 로 접속하므로 별도 유저 생성 없이 root 비밀번호만 설정
+      # (root 사용 시 DB_PASSWORD 와 MYSQL_ROOT_PASSWORD 를 동일하게 맞출 것)
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+    # 호스트 3306 충돌 방지: 호스트는 3307, 컨테이너 내부는 3306 유지
     ports:
-      - "3306:3306"
+      - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
     # DB가 실제 접속 가능한 상태인지 확인 (app 의 depends_on 조건)
