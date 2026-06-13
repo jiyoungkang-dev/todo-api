@@ -1,4 +1,4 @@
-# Todo API
+# ✅ todo-api
 
 Spring Boot 기반 할 일 관리 REST API입니다.
 Todo CRUD와 함께 완료 여부 필터링 · 페이징 · 정렬을 지원하며, Swagger(OpenAPI)로 API 문서를 제공합니다.
