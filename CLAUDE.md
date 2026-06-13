@@ -36,6 +36,10 @@ src/main/java/com/example/todo_api/
 - PUT    /api/todos/{id} : 수정
 - DELETE /api/todos/{id} : 삭제
 
+## 커밋 메시지 규칙
+- conventional commits — 타입(feat/fix/chore/build/perf/test/docs)은 영어, 설명은 한국어.
+- 예: feat: 일정 목록 조회 API 추가
+
 ## 실수 방지 규칙
 (여기에 Claude가 같은 실수를 반복하면 규칙을 추가한다)
 - H2 콘솔 활성화: application.properties에 spring.h2.console.enabled=true
